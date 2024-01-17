@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="???">
+    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="python 3.8">
       <change beforePath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,13 +202,40 @@
       <option name="project" value="LOCAL" />
       <updated>1705525773897</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="!!!">
+      <option name="closed" value="true" />
+      <created>1705527025386</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1705527025386</updated>
+    </task>
+    <task id="LOCAL-00010" summary="python 3.9.3">
+      <option name="closed" value="true" />
+      <created>1705527100655</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1705527100655</updated>
+    </task>
+    <task id="LOCAL-00011" summary="python 3.8">
+      <option name="closed" value="true" />
+      <created>1705527160964</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1705527160964</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="yes" />
     <MESSAGE value="idk" />
     <MESSAGE value="???" />
-    <option name="LAST_COMMIT_MESSAGE" value="???" />
+    <MESSAGE value="!!!" />
+    <MESSAGE value="python 3.9.3" />
+    <MESSAGE value="python 3.8" />
+    <option name="LAST_COMMIT_MESSAGE" value="python 3.8" />
   </component>
 </project>
