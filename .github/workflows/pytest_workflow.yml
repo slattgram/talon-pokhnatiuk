@@ -20,9 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-          sudo apt-get install -y chromium-chromedriver
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
@@ -31,7 +28,7 @@ jobs:
           CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
           wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
           unzip chromedriver_linux64.zip -d ~/bin
-          echo "##[add-path]${{ runner.workspace }}/bin" # Add chromedriver directory to PATH
+          echo "PATH=\$HOME/bin:\$PATH" >> $GITHUB_ENV
           chmod +x ~/bin/chromedriver
 
       - name: Run tests
