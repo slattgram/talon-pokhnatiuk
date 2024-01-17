@@ -37,6 +37,14 @@ jobs:
               echo "PATH: $PATH"
               echo "CHROMEDRIVER_PATH: $CHROMEDRIVER_PATH"
 
+      - name: Set up environment variables
+        run: echo "export CHROMEDRIVER_PATH=$HOME/bin/chromedriver" >> $GITHUB_ENV
+
+      - name: Print environment variables after update
+        run: |
+          echo "PATH: $PATH"
+          echo "CHROMEDRIVER_PATH: $CHROMEDRIVER_PATH"
+
       - name: Run tests
         run: |
           pytest main.py
