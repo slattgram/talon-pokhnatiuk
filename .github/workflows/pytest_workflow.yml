@@ -26,6 +26,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Download and install ChromeDriver
+        run: |
+          CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+          unzip chromedriver_linux64.zip -d ~/bin
+          echo "##[add-path]${{ runner.workspace }}/bin" # Add chromedriver directory to PATH
+          chmod +x ~/bin/chromedriver
+
       - name: Run tests
         run: |
           pytest main.py

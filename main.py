@@ -16,6 +16,7 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 @pytest.fixture
 def driver() -> webdriver.Chrome:
     # Initialize the WebDriver
+
     chrome_driver = webdriver.Chrome()
     chrome_driver.get(TESTING_URL)
     return chrome_driver
