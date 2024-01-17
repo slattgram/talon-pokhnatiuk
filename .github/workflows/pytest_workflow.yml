@@ -25,11 +25,17 @@ jobs:
 
       - name: Download and install ChromeDriver
         run: |
-          CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-          wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
-          unzip chromedriver_linux64.zip -d ~/bin
-          echo "PATH=\$HOME/bin:\$PATH" >> $GITHUB_ENV
-          chmod +x ~/bin/chromedriver
+            CHROMEDRIVER_VERSION=$(curl -s https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
+            wget https://chromedriver.storage.googleapis.com/$CHROMEDRIVER_VERSION/chromedriver_linux64.zip
+            unzip chromedriver_linux64.zip -d $HOME/bin
+            echo "PATH=\$HOME/bin:\$PATH" >> $GITHUB_ENV
+            echo "export CHROMEDRIVER_PATH=$HOME/bin/chromedriver" >> $GITHUB_ENV
+            chmod +x $HOME/bin/chromedriver
+
+      - name: Print environment variables
+        run: |
+              echo "PATH: $PATH"
+              echo "CHROMEDRIVER_PATH: $CHROMEDRIVER_PATH"
 
       - name: Run tests
         run: |
