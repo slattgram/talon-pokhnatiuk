@@ -40,7 +40,6 @@ table {
   padding: 5px;
   border: 1px solid #E6E6E6;
 }
-
 #environment tr:nth-child(odd) {
   background-color: #f6f6f6;
 }
@@ -48,15 +47,26 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed, .passed .col-result {
+span.passed,
+.passed .col-result {
   color: green;
 }
 
-span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
+span.skipped,
+span.xfailed,
+span.rerun,
+.skipped .col-result,
+.xfailed .col-result,
+.rerun .col-result {
   color: orange;
 }
 
-span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result {
+span.error,
+span.failed,
+span.xpassed,
+.error .col-result,
+.failed .col-result,
+.xpassed .col-result {
   color: red;
 }
 
@@ -77,13 +87,12 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
   font-size: 12px;
   width: 100%;
 }
-
-#results-table th, #results-table td {
+#results-table th,
+#results-table td {
   padding: 5px;
   border: 1px solid #E6E6E6;
   text-align: left;
 }
-
 #results-table th {
   font-weight: bold;
 }
@@ -91,10 +100,6 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
 /*------------------
  * 2. Extra
  *------------------*/
-.log:only-child {
-  height: inherit;
-}
-
 .log {
   background-color: #e6e6e6;
   border: 1px solid #e6e6e6;
@@ -106,6 +111,9 @@ span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, 
   padding: 5px;
   white-space: pre-wrap;
 }
+.log:only-child {
+  height: inherit;
+}
 
 div.image {
   border: 1px solid #e6e6e6;
@@ -115,7 +123,6 @@ div.image {
   overflow: hidden;
   width: 320px;
 }
-
 div.image img {
   width: 320px;
 }
@@ -128,7 +135,6 @@ div.video {
   overflow: hidden;
   width: 320px;
 }
-
 div.video video {
   overflow: hidden;
   width: 320px;
@@ -171,17 +177,14 @@ div.video video {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 }
-
 .inactive .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #E6E6E6;
 }
-
 .asc.active .sort-icon {
   /*finish triangle*/
   border-bottom: 8px solid #999;
 }
-
 .desc.active .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #999;
@@ -207,68 +210,68 @@ function find(selector, elem) { // eslint-disable-line no-redeclare
     return elem.querySelector(selector);
 }
 
-function find_all(selector, elem) {
+function findAll(selector, elem) {
     if (!elem) {
         elem = document;
     }
     return toArray(elem.querySelectorAll(selector));
 }
 
-function sort_column(elem) {
-    toggle_sort_states(elem);
+function sortColumn(elem) {
+    toggleSortStates(elem);
     const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
     let key;
     if (elem.classList.contains('result')) {
-        key = key_result;
+        key = keyResult;
     } else if (elem.classList.contains('links')) {
-        key = key_link;
+        key = keyLink;
     } else {
-        key = key_alpha;
+        key = keyAlpha;
     }
-    sort_table(elem, key(colIndex));
+    sortTable(elem, key(colIndex));
 }
 
-function show_all_extras() { // eslint-disable-line no-unused-vars
-    find_all('.col-result').forEach(show_extras);
+function showAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(showExtras);
 }
 
-function hide_all_extras() { // eslint-disable-line no-unused-vars
-    find_all('.col-result').forEach(hide_extras);
+function hideAllExtras() { // eslint-disable-line no-unused-vars
+    findAll('.col-result').forEach(hideExtras);
 }
 
-function show_extras(colresult_elem) {
-    const extras = colresult_elem.parentNode.nextElementSibling;
-    const expandcollapse = colresult_elem.firstElementChild;
+function showExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
     extras.classList.remove('collapsed');
     expandcollapse.classList.remove('expander');
     expandcollapse.classList.add('collapser');
 }
 
-function hide_extras(colresult_elem) {
-    const extras = colresult_elem.parentNode.nextElementSibling;
-    const expandcollapse = colresult_elem.firstElementChild;
+function hideExtras(colresultElem) {
+    const extras = colresultElem.parentNode.nextElementSibling;
+    const expandcollapse = colresultElem.firstElementChild;
     extras.classList.add('collapsed');
     expandcollapse.classList.remove('collapser');
     expandcollapse.classList.add('expander');
 }
 
-function show_filters() {
-    const filter_items = document.getElementsByClassName('filter');
-    for (let i = 0; i < filter_items.length; i++)
-        filter_items[i].hidden = false;
+function showFilters() {
+    const filterItems = document.getElementsByClassName('filter');
+    for (let i = 0; i < filterItems.length; i++)
+        filterItems[i].hidden = false;
 }
 
-function add_collapse() {
+function addCollapse() {
     // Add links for show/hide all
     const resulttable = find('table#results-table');
     const showhideall = document.createElement('p');
-    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
-                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
+    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
+                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
     resulttable.parentElement.insertBefore(showhideall, resulttable);
 
     // Add show/hide link to each result
-    find_all('.col-result').forEach(function(elem) {
-        const collapsed = get_query_parameter('collapsed') || 'Passed';
+    findAll('.col-result').forEach(function(elem) {
+        const collapsed = getQueryParameter('collapsed') || 'Passed';
         const extras = elem.parentNode.nextElementSibling;
         const expandcollapse = document.createElement('span');
         if (extras.classList.contains('collapsed')) {
@@ -283,40 +286,40 @@ function add_collapse() {
 
         elem.addEventListener('click', function(event) {
             if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
-                show_extras(event.currentTarget);
+                showExtras(event.currentTarget);
             } else {
-                hide_extras(event.currentTarget);
+                hideExtras(event.currentTarget);
             }
         });
     });
 }
 
-function get_query_parameter(name) {
+function getQueryParameter(name) {
     const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () { // eslint-disable-line no-unused-vars
-    reset_sort_headers();
+    resetSortHeaders();
 
-    add_collapse();
+    addCollapse();
 
-    show_filters();
+    showFilters();
 
-    sort_column(find('.initial-sort'));
+    sortColumn(find('.initial-sort'));
 
-    find_all('.sortable').forEach(function(elem) {
+    findAll('.sortable').forEach(function(elem) {
         elem.addEventListener('click',
             function() {
-                sort_column(elem);
+                sortColumn(elem);
             }, false);
     });
 }
 
-function sort_table(clicked, key_func) {
-    const rows = find_all('.results-table-row');
+function sortTable(clicked, keyFunc) {
+    const rows = findAll('.results-table-row');
     const reversed = !clicked.classList.contains('asc');
-    const sorted_rows = sort(rows, key_func, reversed);
+    const sortedRows = sort(rows, keyFunc, reversed);
     /* Whole table is removed here because browsers acts much slower
      * when appending existing elements.
      */
@@ -325,62 +328,62 @@ function sort_table(clicked, key_func) {
     const parent = document.createElement('table');
     parent.id = 'results-table';
     parent.appendChild(thead);
-    sorted_rows.forEach(function(elem) {
+    sortedRows.forEach(function(elem) {
         parent.appendChild(elem);
     });
     document.getElementsByTagName('BODY')[0].appendChild(parent);
 }
 
-function sort(items, key_func, reversed) {
-    const sort_array = items.map(function(item, i) {
-        return [key_func(item), i];
+function sort(items, keyFunc, reversed) {
+    const sortArray = items.map(function(item, i) {
+        return [keyFunc(item), i];
     });
 
-    sort_array.sort(function(a, b) {
-        const key_a = a[0];
-        const key_b = b[0];
+    sortArray.sort(function(a, b) {
+        const keyA = a[0];
+        const keyB = b[0];
 
-        if (key_a == key_b) return 0;
+        if (keyA == keyB) return 0;
 
         if (reversed) {
-            return key_a < key_b ? 1 : -1;
+            return keyA < keyB ? 1 : -1;
         } else {
-            return key_a > key_b ? 1 : -1;
+            return keyA > keyB ? 1 : -1;
         }
     });
 
-    return sort_array.map(function(item) {
+    return sortArray.map(function(item) {
         const index = item[1];
         return items[index];
     });
 }
 
-function key_alpha(col_index) {
+function keyAlpha(colIndex) {
     return function(elem) {
-        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
+        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
     };
 }
 
-function key_link(col_index) {
+function keyLink(colIndex) {
     return function(elem) {
-        const dataCell = elem.childNodes[1].childNodes[col_index].firstChild;
+        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
         return dataCell == null ? '' : dataCell.innerText.toLowerCase();
     };
 }
 
-function key_result(col_index) {
+function keyResult(colIndex) {
     return function(elem) {
         const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
             'Skipped', 'Passed'];
-        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
+        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
     };
 }
 
-function reset_sort_headers() {
-    find_all('.sort-icon').forEach(function(elem) {
+function resetSortHeaders() {
+    findAll('.sort-icon').forEach(function(elem) {
         elem.parentNode.removeChild(elem);
     });
-    find_all('.sortable').forEach(function(elem) {
+    findAll('.sortable').forEach(function(elem) {
         const icon = document.createElement('div');
         icon.className = 'sort-icon';
         icon.textContent = 'vvv';
@@ -390,7 +393,7 @@ function reset_sort_headers() {
     });
 }
 
-function toggle_sort_states(elem) {
+function toggleSortStates(elem) {
     //if active, toggle between asc and desc
     if (elem.classList.contains('active')) {
         elem.classList.toggle('asc');
@@ -399,37 +402,37 @@ function toggle_sort_states(elem) {
 
     //if inactive, reset all other functions and add ascending active
     if (elem.classList.contains('inactive')) {
-        reset_sort_headers();
+        resetSortHeaders();
         elem.classList.remove('inactive');
         elem.classList.add('active');
     }
 }
 
-function is_all_rows_hidden(value) {
+function isAllRowsHidden(value) {
     return value.hidden == false;
 }
 
-function filter_table(elem) { // eslint-disable-line no-unused-vars
-    const outcome_att = 'data-test-result';
-    const outcome = elem.getAttribute(outcome_att);
-    const class_outcome = outcome + ' results-table-row';
-    const outcome_rows = document.getElementsByClassName(class_outcome);
+function filterTable(elem) { // eslint-disable-line no-unused-vars
+    const outcomeAtt = 'data-test-result';
+    const outcome = elem.getAttribute(outcomeAtt);
+    const classOutcome = outcome + ' results-table-row';
+    const outcomeRows = document.getElementsByClassName(classOutcome);
 
-    for(let i = 0; i < outcome_rows.length; i++){
-        outcome_rows[i].hidden = !elem.checked;
+    for(let i = 0; i < outcomeRows.length; i++){
+        outcomeRows[i].hidden = !elem.checked;
     }
 
-    const rows = find_all('.results-table-row').filter(is_all_rows_hidden);
-    const all_rows_hidden = rows.length == 0 ? true : false;
-    const not_found_message = document.getElementById('not-found-message');
-    not_found_message.hidden = !all_rows_hidden;
+    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
+    const allRowsHidden = rows.length == 0 ? true : false;
+    const notFoundMessage = document.getElementById('not-found-message');
+    notFoundMessage.hidden = !allRowsHidden;
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 17-Jan-2024 at 22:56:39 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.0</p>
+    <p>Report generated on 17-Jan-2024 at 23:29:00 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Summary</h2>
-    <p>0 tests ran in 1.10 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">3 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>3 tests ran in 20.66 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -440,36 +443,374 @@ function filter_table(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="error results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_profile_eng::setup</td>
-          <td class="col-duration">0.32</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_profile_eng</td>
+          <td class="col-duration">15.78</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044242e0&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044242e0&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+            <div class="empty log">No log output captured.</div></td></tr></tbody>
+      <tbody class="passed results-table-row">
+        <tr>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_email</td>
+          <td class="col-duration">3.02</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
+Checking email 1: yuriy.furhala@lnu.edu.ua against the expected emails.
+
+Checking email 2: serhiy.velhosh@lnu.edu.ua against the expected emails.
+
+Checking email 3: orest.dzendzelyuk@lnu.edu.ua against the expected emails.
+
+Checking email 4: iryna.koflyuk@lnu.edu.ua against the expected emails.
+
+Checking email 5: andriy.luchechko@lnu.edu.ua against the expected emails.
+
+Checking email 6: lesya.kostyuk@lnu.edu.ua against the expected emails.
+
+Email 7 container is empty. Skipping assertion.
+
+Checking email 8: oleh.kushnir@lnu.edu.ua against the expected emails.
+
+Checking email 9: oleh.krupych@lnu.edu.ua against the expected emails.
+
+Checking email 10: ihor.polovynko@lnu.edu.ua against the expected emails.
+
+Checking email 11: serhiy.sveleba@lnu.edu.ua against the expected emails.
+
+Checking email 12: volodymyr.grabovskyi@lnu.edu.ua against the expected emails.
+
+Checking email 13: marta.dufanets@lnu.edu.ua against the expected emails.
+
+Checking email 14: ivan.katerynchuk@lnu.edu.ua against the expected emails.
+
+Checking email 15: yuriy.korchak@lnu.edu.ua against the expected emails.
+
+Checking email 16: ivan.kuno@lnu.edu.ua against the expected emails.
+
+Checking email 17: galyna.panochko@lnu.edu.ua against the expected emails.
+
+Checking email 18: mykhailo.rusyniak@lnu.edu.ua against the expected emails.
+
+Checking email 19: volodymyr.franiv@lnu.edu.ua against the expected emails.
+
+Checking email 20: yuriy.furhala@lnu.edu.ua against the expected emails.
+
+Checking email 21: bohdan.horon@lnu.edu.ua against the expected emails.
+
+Checking email 22: oleh.izhyk@lnu.edu.ua against the expected emails.
+
+Checking email 23: Mariana.Mostova@lnu.edu.ua against the expected emails.
+
+Checking email 24: ivan.fedorovych@lnu.edu.ua against the expected emails.
+
+Checking email 25: halyna.dutsyak@lnu.edu.ua against the expected emails.
+
+Email 26 container is empty. Skipping assertion.
+
+Email 27 container is empty. Skipping assertion.
+
+Email 28 container is empty. Skipping assertion.
+
+Email 29 container is empty. Skipping assertion.
+
+Checking email 30: vasyltaras.luchka@lnu.edu.ua against the expected emails.
+
+Email 31 container is empty. Skipping assertion.
+
+Checking email 32: Andrii.Fesiuk@lnu.edu.ua against the expected emails.
+
+Email 33 container is empty. Skipping assertion.
+
+Checking email 34: igor.olenych@lnu.edu.ua against the expected emails.
+
+Checking email 35: halyna.klym@lnu.edu.ua against the expected emails.
+
+Checking email 36: lyubomyr.monastyrskyy@lnu.edu.ua against the expected emails.
+
+Checking email 37: yaroslav.boyko@lnu.edu.ua against the expected emails.
+
+Checking email 38: oleh.sinkevych@lnu.edu.ua against the expected emails.
+
+Checking email 39: bohdan.sokolovskyy@lnu.edu.ua against the expected emails.
+
+Checking email 40: Orest.Fliunt@lnu.edu.ua against the expected emails.
+
+Checking email 41: mykhailo.pavlyk@lnu.edu.ua against the expected emails.
+
+Checking email 42: marianna.prytula@lnu.edu.ua against the expected emails.
+
+Checking email 43: oleksandr.futey@lnu.edu.ua against the expected emails.
+
+Email 44 container is empty. Skipping assertion.
+
+Checking email 45: Ivan.Karbovnyk@lnu.edu.ua against the expected emails.
+
+Checking email 46: Ivan.Bolesta@lnu.edu.ua against the expected emails.
+
+Checking email 47: mariia.nazarkevych@lnu.edu.ua against the expected emails.
+
+Checking email 48: serhii.rendziniak@lnu.edu.ua against the expected emails.
+
+Checking email 49: Bohdan.Blahitko@lnu.edu.ua against the expected emails.
+
+Checking email 50: serhiy.velhosh@lnu.edu.ua against the expected emails.
+
+Checking email 51: Hryhoriy.Zlobin@lnu.edu.ua against the expected emails.
+
+Checking email 52: bogdana.kalivoshka@lnu.edu.ua against the expected emails.
+
+Checking email 53: ihor.katernyak@lnu.edu.ua against the expected emails.
+
+Checking email 54: oleksiy.kushnir@lnu.edu.ua against the expected emails.
+
+Checking email 55: Zinoviy.Lyubun@lnu.edu.ua against the expected emails.
+
+Checking email 56: Vasyl.Rabyk@lnu.edu.ua against the expected emails.
+
+Checking email 57: rostyslav.romanyshyn@lnu.edu.ua against the expected emails.
+
+Checking email 58: khrystyna.serednytska@lnu.edu.ua against the expected emails.
+
+Checking email 59: Ivan.Khvyshchun@lnu.edu.ua against the expected emails.
+
+Checking email 60: viktor.dzikovskyy@lnu.edu.ua against the expected emails.
+
+Checking email 61: Pavlo.Levush@lnu.edu.ua against the expected emails.
+
+Checking email 62: petro.rykovskyy@lnu.edu.ua against the expected emails.
+
+Checking email 63: Valeriy.Shevchuk@lnu.edu.ua against the expected emails.
+
+Checking email 64: Yaroslav.Shmyhelskyy@lnu.edu.ua against the expected emails.
+
+Checking email 65: Lesya.Romanyak@lnu.edu.ua against the expected emails.
+
+Email 66 container is empty. Skipping assertion.
+
+Email 67 container is empty. Skipping assertion.
+
+Checking email 68: bohdan.pavlyk@lnu.edu.ua against the expected emails.
+
+Checking email 69: pavlo.galiy@lnu.edu.ua against the expected emails.
+
+Checking email 70: andriy.luchechko@lnu.edu.ua against the expected emails.
+
+Checking email 71: lyudmyla.kostyk@lnu.edu.ua against the expected emails.
+
+Checking email 72: roman.lys@lnu.edu.ua against the expected emails.
+
+Checking email 73: ihor.matviyishyn@lnu.edu.ua against the expected emails.
+
+Checking email 74: dmytro.slobodzyan@lnu.edu.ua against the expected emails.
+
+Email 75 container is empty. Skipping assertion.
+
+Checking email 76: markiyan.kushlyk@lnu.edu.ua against the expected emails.
+
+Checking email 77: yaroslav.shpotyuk@lnu.edu.ua against the expected emails.
+
+Checking email 78: roman.shuvar@lnu.edu.ua against the expected emails.
+
+Checking email 79: oleh.buhrii@lnu.edu.ua against the expected emails.
+
+Checking email 80: koman.bohdan@lnu.edu.ua against the expected emails.
+
+Checking email 81: igor.ogirko@lnu.edu.ua against the expected emails.
+
+Checking email 82: bohdan.pavlyshenko@lnu.edu.ua against the expected emails.
+
+Checking email 83: volodymyr.yuzevych@lnu.edu.ua against the expected emails.
+
+Email 84 container is empty. Skipping assertion.
+
+Email 85 container is empty. Skipping assertion.
+
+Checking email 86: lidiya.demkiv@lnu.edu.ua against the expected emails.
+
+Checking email 87: vasyl.liashkevych@lnu.edu.ua against the expected emails.
+
+Checking email 88: taras.nenchuk@lnu.edu.ua against the expected emails.
+
+Checking email 89: roman.stakhira@lnu.edu.ua against the expected emails.
+
+Checking email 90: tkachenko.oleksandr@lnu.edu.ua against the expected emails.
+
+Email 91 container is empty. Skipping assertion.
+
+Checking email 92: haliatkinoleksandr@gmail.com against the expected emails.
+
+Email 93 container is empty. Skipping assertion.
+
+Checking email 94: oleh.kaskun@lnu.edu.ua against the expected emails.
+
+Checking email 95: igor.kolych@lnu.edu.ua against the expected emails.
+
+Checking email 96: petro.kulyk@lnu.edu.ua against the expected emails.
+
+Email 97 container is empty. Skipping assertion.
+
+Checking email 98: mariia.liashkevych@lnu.edu.ua against the expected emails.
+
+Email 99 container is empty. Skipping assertion.
+
+Checking email 100: iryna.mysiuk@lnu.edu.ua against the expected emails.
+
+Checking email 101: roman.mysiuk@lnu.edu.ua against the expected emails.
+
+Checking email 102: oleksandra.mokii@lnu.edu.ua against the expected emails.
+
+Checking email 103: vitalius.parubochyi@lnu.edu.ua against the expected emails.
+
+Email 104 container is empty. Skipping assertion.
+
+Email 105 container is empty. Skipping assertion.
+
+Checking email 106: volodymyra.melnyk@lnu.edu.ua against the expected emails.
+
+Checking email 107: bohdan.buhrii@lnu.edu.ua against the expected emails.
+
+Email 108 container is empty. Skipping assertion.
+
+Checking email 109: ihor.drozdov@lnu.edu.ua against the expected emails.
+
+Email 110 container is empty. Skipping assertion.
+
+Checking email 111: Oleh.Sihunov@lnu.edu.ua against the expected emails.
+
+Email 112 container is empty. Skipping assertion.
+
+Checking email 113: mykola.stasiuk@lnu.edu.ua against the expected emails.
+
+Checking email 114: MarkiyanFostyak@lnu.edu.ua against the expected emails.
+
+Checking email 115: Yurii.Tsudzenko@lnu.edu.ua against the expected emails.
+
+Email 116 container is empty. Skipping assertion.
+
+Checking email 117: oleh.bordun@lnu.edu.ua against the expected emails.
+
+Checking email 118: taras.demkiv@lnu.edu.ua against the expected emails.
+
+Checking email 119: volodymyr.bihdai@lnu.edu.ua against the expected emails.
+
+Checking email 120: roman.bihun@lnu.edu.ua against the expected emails.
+
+Email 121 container is empty. Skipping assertion.
+
+Checking email 122: ihor.kukharskyy@lnu.edu.ua against the expected emails.
+
+Checking email 123: ivanna.medvid@lnu.edu.ua against the expected emails.
+
+Checking email 124: bohdan.penyukh@lnu.edu.ua against the expected emails.
+
+Checking email 125: vadym.ptashnyk@lnu.edu.ua against the expected emails.
+
+Checking email 126: olha.koplak@lnu.edu.ua against the expected emails.
+
+Checking email 127: iryna.koflyuk@lnu.edu.ua against the expected emails.
+
+Checking email 128: vitalii.maksymych@lnu.edu.ua against the expected emails.
+
+Checking email 129: danylo.maksymchuk@lnu.edu.ua against the expected emails.
+
+Checking email 130: petro.parandiy@lnu.edu.ua against the expected emails.
+
+Checking email 131: galyna.smetana@lnu.edu.ua against the expected emails.
+
+Checking email 132: roman.kovtun@lnu.edu.ua against the expected emails.
+
+Email 133 container is empty. Skipping assertion.
+
+Email 134 container is empty. Skipping assertion.
+
+Checking email 135: ivan.fedorovych@lnu.edu.ua against the expected emails.
+
+Checking email 136: iryna.azarova@lnu.edu.ua against the expected emails.
+
+Checking email 137: serhii.pashchenko@lnu.edu.ua against the expected emails.
+
+Checking email 138: volodymyr.pysarevskyi@lnu.edu.ua against the expected emails.
+
+Checking email 139: ihor.bordiuzhenko@lnu.edu.ua against the expected emails.
+
+Email 140 container is empty. Skipping assertion.
+
+Checking email 141: olha.riabchuk@lnu.edu.ua against the expected emails.
+
+Email 142 container is empty. Skipping assertion.
+
+Checking email 143: Valeriy.Shevchuk@lnu.edu.ua against the expected emails.
+
+Checking email 144: Lesya.Romanyak@lnu.edu.ua against the expected emails.
+
+Checking email 145: oleksiy.kushnir@lnu.edu.ua against the expected emails.
+
+Email 146 container is empty. Skipping assertion.
+
+Email 147 container is empty. Skipping assertion.
+
+Email 148 container is empty. Skipping assertion.
+
+Checking email 149: vyacheslav.vasyltsiv@lnu.edu.ua against the expected emails.
+
+Email 150 container is empty. Skipping assertion.
+
+Email 151 container is empty. Skipping assertion.
+
+Email 152 container is empty. Skipping assertion.
+
+Email 153 container is empty. Skipping assertion.
+
+Email 154 container is empty. Skipping assertion.
+
+Checking email 155: olha.koplak@lnu.edu.ua against the expected emails.
+
+Checking email 156: ivan.khomyshyn@lnu.edu.ua against the expected emails.
+
+Email 157 container is empty. Skipping assertion.
+
+Email 158 container is empty. Skipping assertion.
+
+Checking email 159: romana.kosovska@lnu.edu.ua against the expected emails.
+
+Checking email 160: petro.rykovskyy@lnu.edu.ua against the expected emails.
+
+Checking email 161: viktoriya.odintsova@lnu.edu.ua against the expected emails.
+
+Email 162 container is empty. Skipping assertion.
+
+Checking email 163: orest.dzendzelyuk@lnu.edu.ua against the expected emails.
+
+Email 164 container is empty. Skipping assertion.
+
+Checking email 165: roman.yaremyk@lnu.edu.ua against the expected emails.
+
+Checking email 166: vasyl.hetman@lnu.edu.ua against the expected emails.
+
+Checking email 167: yaroslav.shpotyuk@lnu.edu.ua against the expected emails.
+
+Email 168 container is empty. Skipping assertion.
+
+Checking email 169: vyacheslav.vasyltsiv@lnu.edu.ua against the expected emails.
+
+Checking email 170: markiyan.kushlyk@lnu.edu.ua against the expected emails.
+
+Email 171 container is empty. Skipping assertion.
+
+Email 172 container is empty. Skipping assertion.
 <br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_email::setup</td>
-          <td class="col-duration">0.30</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_title</td>
+          <td class="col-duration">1.60</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044ca700&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044ca700&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
-        <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_title::setup</td>
-          <td class="col-duration">0.31</td>
-          <td class="col-links"></td></tr>
-        <tr>
-          <td class="extra" colspan="4">
-            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044c19d0&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044c19d0&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
-note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
-<br/></div></td></tr></tbody></table></body></html>
+            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
