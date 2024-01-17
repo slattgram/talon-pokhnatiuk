@@ -1,3 +1,2 @@
 selenium==4.6.0
 pytest==7.4.1
-pytest-html==3.1.0
