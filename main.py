@@ -1,7 +1,5 @@
-import os
-import pytest_html
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -21,21 +19,6 @@ def driver() -> webdriver.Chrome:
     chrome_driver = webdriver.Chrome()
     chrome_driver.get(TESTING_URL)
     return chrome_driver
-
-@pytest.hookimpl(hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    outcome = yield
-    report = outcome.get_result()
-    extras = getattr(report, "extras", [])
-    if report.when == "call":
-        # always add url to report
-        extras.append(pytest_html.extras.url("http://www.example.com/"))
-        xfail = hasattr(report, "wasxfail")
-        if (report.skipped and xfail) or (report.failed and not xfail):
-            # only add additional html on failure
-            extras.append(pytest_html.extras.html("<div>Additional HTML</div>"))
-        report.extras = extras
-
 
 def test_profile_eng(driver: webdriver.Chrome):
     # Wait for all elements to be present on the page
@@ -130,8 +113,3 @@ def test_title(driver: webdriver.Chrome):
 
     assert ukr_title == "Персонал - Факультет електроніки та комп'ютерних технологій" \
            and eng_title == "Staff - Faculty of Electronics and Computer Technologies"
-
-
-if __name__ == "__main__":
-    file_path = os.path.abspath(__file__)
-    pytest.main(["-s", file_path, "--html=report.html"])

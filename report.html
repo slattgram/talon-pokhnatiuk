@@ -40,6 +40,7 @@ table {
   padding: 5px;
   border: 1px solid #E6E6E6;
 }
+
 #environment tr:nth-child(odd) {
   background-color: #f6f6f6;
 }
@@ -47,26 +48,15 @@ table {
 /******************************
  * TEST RESULT COLORS
  ******************************/
-span.passed,
-.passed .col-result {
+span.passed, .passed .col-result {
   color: green;
 }
 
-span.skipped,
-span.xfailed,
-span.rerun,
-.skipped .col-result,
-.xfailed .col-result,
-.rerun .col-result {
+span.skipped, span.xfailed, span.rerun, .skipped .col-result, .xfailed .col-result, .rerun .col-result {
   color: orange;
 }
 
-span.error,
-span.failed,
-span.xpassed,
-.error .col-result,
-.failed .col-result,
-.xpassed .col-result {
+span.error, span.failed, span.xpassed, .error .col-result, .failed .col-result, .xpassed .col-result {
   color: red;
 }
 
@@ -87,12 +77,13 @@ span.xpassed,
   font-size: 12px;
   width: 100%;
 }
-#results-table th,
-#results-table td {
+
+#results-table th, #results-table td {
   padding: 5px;
   border: 1px solid #E6E6E6;
   text-align: left;
 }
+
 #results-table th {
   font-weight: bold;
 }
@@ -100,6 +91,10 @@ span.xpassed,
 /*------------------
  * 2. Extra
  *------------------*/
+.log:only-child {
+  height: inherit;
+}
+
 .log {
   background-color: #e6e6e6;
   border: 1px solid #e6e6e6;
@@ -111,9 +106,6 @@ span.xpassed,
   padding: 5px;
   white-space: pre-wrap;
 }
-.log:only-child {
-  height: inherit;
-}
 
 div.image {
   border: 1px solid #e6e6e6;
@@ -123,6 +115,7 @@ div.image {
   overflow: hidden;
   width: 320px;
 }
+
 div.image img {
   width: 320px;
 }
@@ -135,6 +128,7 @@ div.video {
   overflow: hidden;
   width: 320px;
 }
+
 div.video video {
   overflow: hidden;
   width: 320px;
@@ -177,14 +171,17 @@ div.video video {
   border-left: 8px solid transparent;
   border-right: 8px solid transparent;
 }
+
 .inactive .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #E6E6E6;
 }
+
 .asc.active .sort-icon {
   /*finish triangle*/
   border-bottom: 8px solid #999;
 }
+
 .desc.active .sort-icon {
   /*finish triangle*/
   border-top: 8px solid #999;
@@ -210,68 +207,68 @@ function find(selector, elem) { // eslint-disable-line no-redeclare
     return elem.querySelector(selector);
 }
 
-function findAll(selector, elem) {
+function find_all(selector, elem) {
     if (!elem) {
         elem = document;
     }
     return toArray(elem.querySelectorAll(selector));
 }
 
-function sortColumn(elem) {
-    toggleSortStates(elem);
+function sort_column(elem) {
+    toggle_sort_states(elem);
     const colIndex = toArray(elem.parentNode.childNodes).indexOf(elem);
     let key;
     if (elem.classList.contains('result')) {
-        key = keyResult;
+        key = key_result;
     } else if (elem.classList.contains('links')) {
-        key = keyLink;
+        key = key_link;
     } else {
-        key = keyAlpha;
+        key = key_alpha;
     }
-    sortTable(elem, key(colIndex));
+    sort_table(elem, key(colIndex));
 }
 
-function showAllExtras() { // eslint-disable-line no-unused-vars
-    findAll('.col-result').forEach(showExtras);
+function show_all_extras() { // eslint-disable-line no-unused-vars
+    find_all('.col-result').forEach(show_extras);
 }
 
-function hideAllExtras() { // eslint-disable-line no-unused-vars
-    findAll('.col-result').forEach(hideExtras);
+function hide_all_extras() { // eslint-disable-line no-unused-vars
+    find_all('.col-result').forEach(hide_extras);
 }
 
-function showExtras(colresultElem) {
-    const extras = colresultElem.parentNode.nextElementSibling;
-    const expandcollapse = colresultElem.firstElementChild;
+function show_extras(colresult_elem) {
+    const extras = colresult_elem.parentNode.nextElementSibling;
+    const expandcollapse = colresult_elem.firstElementChild;
     extras.classList.remove('collapsed');
     expandcollapse.classList.remove('expander');
     expandcollapse.classList.add('collapser');
 }
 
-function hideExtras(colresultElem) {
-    const extras = colresultElem.parentNode.nextElementSibling;
-    const expandcollapse = colresultElem.firstElementChild;
+function hide_extras(colresult_elem) {
+    const extras = colresult_elem.parentNode.nextElementSibling;
+    const expandcollapse = colresult_elem.firstElementChild;
     extras.classList.add('collapsed');
     expandcollapse.classList.remove('collapser');
     expandcollapse.classList.add('expander');
 }
 
-function showFilters() {
-    const filterItems = document.getElementsByClassName('filter');
-    for (let i = 0; i < filterItems.length; i++)
-        filterItems[i].hidden = false;
+function show_filters() {
+    const filter_items = document.getElementsByClassName('filter');
+    for (let i = 0; i < filter_items.length; i++)
+        filter_items[i].hidden = false;
 }
 
-function addCollapse() {
+function add_collapse() {
     // Add links for show/hide all
     const resulttable = find('table#results-table');
     const showhideall = document.createElement('p');
-    showhideall.innerHTML = '<a href="javascript:showAllExtras()">Show all details</a> / ' +
-                            '<a href="javascript:hideAllExtras()">Hide all details</a>';
+    showhideall.innerHTML = '<a href="javascript:show_all_extras()">Show all details</a> / ' +
+                            '<a href="javascript:hide_all_extras()">Hide all details</a>';
     resulttable.parentElement.insertBefore(showhideall, resulttable);
 
     // Add show/hide link to each result
-    findAll('.col-result').forEach(function(elem) {
-        const collapsed = getQueryParameter('collapsed') || 'Passed';
+    find_all('.col-result').forEach(function(elem) {
+        const collapsed = get_query_parameter('collapsed') || 'Passed';
         const extras = elem.parentNode.nextElementSibling;
         const expandcollapse = document.createElement('span');
         if (extras.classList.contains('collapsed')) {
@@ -286,40 +283,40 @@ function addCollapse() {
 
         elem.addEventListener('click', function(event) {
             if (event.currentTarget.parentNode.nextElementSibling.classList.contains('collapsed')) {
-                showExtras(event.currentTarget);
+                show_extras(event.currentTarget);
             } else {
-                hideExtras(event.currentTarget);
+                hide_extras(event.currentTarget);
             }
         });
     });
 }
 
-function getQueryParameter(name) {
+function get_query_parameter(name) {
     const match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
     return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
 }
 
 function init () { // eslint-disable-line no-unused-vars
-    resetSortHeaders();
+    reset_sort_headers();
 
-    addCollapse();
+    add_collapse();
 
-    showFilters();
+    show_filters();
 
-    sortColumn(find('.initial-sort'));
+    sort_column(find('.initial-sort'));
 
-    findAll('.sortable').forEach(function(elem) {
+    find_all('.sortable').forEach(function(elem) {
         elem.addEventListener('click',
             function() {
-                sortColumn(elem);
+                sort_column(elem);
             }, false);
     });
 }
 
-function sortTable(clicked, keyFunc) {
-    const rows = findAll('.results-table-row');
+function sort_table(clicked, key_func) {
+    const rows = find_all('.results-table-row');
     const reversed = !clicked.classList.contains('asc');
-    const sortedRows = sort(rows, keyFunc, reversed);
+    const sorted_rows = sort(rows, key_func, reversed);
     /* Whole table is removed here because browsers acts much slower
      * when appending existing elements.
      */
@@ -328,62 +325,62 @@ function sortTable(clicked, keyFunc) {
     const parent = document.createElement('table');
     parent.id = 'results-table';
     parent.appendChild(thead);
-    sortedRows.forEach(function(elem) {
+    sorted_rows.forEach(function(elem) {
         parent.appendChild(elem);
     });
     document.getElementsByTagName('BODY')[0].appendChild(parent);
 }
 
-function sort(items, keyFunc, reversed) {
-    const sortArray = items.map(function(item, i) {
-        return [keyFunc(item), i];
+function sort(items, key_func, reversed) {
+    const sort_array = items.map(function(item, i) {
+        return [key_func(item), i];
     });
 
-    sortArray.sort(function(a, b) {
-        const keyA = a[0];
-        const keyB = b[0];
+    sort_array.sort(function(a, b) {
+        const key_a = a[0];
+        const key_b = b[0];
 
-        if (keyA == keyB) return 0;
+        if (key_a == key_b) return 0;
 
         if (reversed) {
-            return keyA < keyB ? 1 : -1;
+            return key_a < key_b ? 1 : -1;
         } else {
-            return keyA > keyB ? 1 : -1;
+            return key_a > key_b ? 1 : -1;
         }
     });
 
-    return sortArray.map(function(item) {
+    return sort_array.map(function(item) {
         const index = item[1];
         return items[index];
     });
 }
 
-function keyAlpha(colIndex) {
+function key_alpha(col_index) {
     return function(elem) {
-        return elem.childNodes[1].childNodes[colIndex].firstChild.data.toLowerCase();
+        return elem.childNodes[1].childNodes[col_index].firstChild.data.toLowerCase();
     };
 }
 
-function keyLink(colIndex) {
+function key_link(col_index) {
     return function(elem) {
-        const dataCell = elem.childNodes[1].childNodes[colIndex].firstChild;
+        const dataCell = elem.childNodes[1].childNodes[col_index].firstChild;
         return dataCell == null ? '' : dataCell.innerText.toLowerCase();
     };
 }
 
-function keyResult(colIndex) {
+function key_result(col_index) {
     return function(elem) {
         const strings = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed',
             'Skipped', 'Passed'];
-        return strings.indexOf(elem.childNodes[1].childNodes[colIndex].firstChild.data);
+        return strings.indexOf(elem.childNodes[1].childNodes[col_index].firstChild.data);
     };
 }
 
-function resetSortHeaders() {
-    findAll('.sort-icon').forEach(function(elem) {
+function reset_sort_headers() {
+    find_all('.sort-icon').forEach(function(elem) {
         elem.parentNode.removeChild(elem);
     });
-    findAll('.sortable').forEach(function(elem) {
+    find_all('.sortable').forEach(function(elem) {
         const icon = document.createElement('div');
         icon.className = 'sort-icon';
         icon.textContent = 'vvv';
@@ -393,7 +390,7 @@ function resetSortHeaders() {
     });
 }
 
-function toggleSortStates(elem) {
+function toggle_sort_states(elem) {
     //if active, toggle between asc and desc
     if (elem.classList.contains('active')) {
         elem.classList.toggle('asc');
@@ -402,37 +399,37 @@ function toggleSortStates(elem) {
 
     //if inactive, reset all other functions and add ascending active
     if (elem.classList.contains('inactive')) {
-        resetSortHeaders();
+        reset_sort_headers();
         elem.classList.remove('inactive');
         elem.classList.add('active');
     }
 }
 
-function isAllRowsHidden(value) {
+function is_all_rows_hidden(value) {
     return value.hidden == false;
 }
 
-function filterTable(elem) { // eslint-disable-line no-unused-vars
-    const outcomeAtt = 'data-test-result';
-    const outcome = elem.getAttribute(outcomeAtt);
-    const classOutcome = outcome + ' results-table-row';
-    const outcomeRows = document.getElementsByClassName(classOutcome);
+function filter_table(elem) { // eslint-disable-line no-unused-vars
+    const outcome_att = 'data-test-result';
+    const outcome = elem.getAttribute(outcome_att);
+    const class_outcome = outcome + ' results-table-row';
+    const outcome_rows = document.getElementsByClassName(class_outcome);
 
-    for(let i = 0; i < outcomeRows.length; i++){
-        outcomeRows[i].hidden = !elem.checked;
+    for(let i = 0; i < outcome_rows.length; i++){
+        outcome_rows[i].hidden = !elem.checked;
     }
 
-    const rows = findAll('.results-table-row').filter(isAllRowsHidden);
-    const allRowsHidden = rows.length == 0 ? true : false;
-    const notFoundMessage = document.getElementById('not-found-message');
-    notFoundMessage.hidden = !allRowsHidden;
+    const rows = find_all('.results-table-row').filter(is_all_rows_hidden);
+    const all_rows_hidden = rows.length == 0 ? true : false;
+    const not_found_message = document.getElementById('not-found-message');
+    not_found_message.hidden = !all_rows_hidden;
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 17-Jan-2024 at 22:41:48 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 17-Jan-2024 at 22:56:39 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.0</p>
     <h2>Summary</h2>
-    <p>0 tests ran in 0.10 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">1 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>0 tests ran in 1.10 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="error">3 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filter_table(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -446,9 +443,33 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
       <tbody class="error results-table-row">
         <tr>
           <td class="col-result">Error</td>
-          <td class="col-name">main.py::collect</td>
-          <td class="col-duration"></td>
+          <td class="col-name">main.py::test_profile_eng::setup</td>
+          <td class="col-duration">0.32</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">ImportError while importing test module &#x27;/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py&#x27;.<br/>Hint: make sure your test modules/packages have valid Python names.<br/>Traceback:<br/>/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/importlib/__init__.py:127: in import_module<br/>    return _bootstrap._gcd_import(name[level:], package, level)<br/>main.py:4: in &lt;module&gt;<br/>    from selenium.common import NoSuchElementException<br/><span class="error">E   ImportError: cannot import name &#x27;NoSuchElementException&#x27; from &#x27;selenium.common&#x27; (/Users/dmytropokhnatiuk/Library/Python/3.9/lib/python/site-packages/selenium/common/__init__.py)</span><br/></div></td></tr></tbody></table></body></html>
+            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044242e0&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044242e0&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
+        <tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">main.py::test_email::setup</td>
+          <td class="col-duration">0.30</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044ca700&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044ca700&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
+        <tr>
+          <td class="col-result">Error</td>
+          <td class="col-name">main.py::test_title::setup</td>
+          <td class="col-duration">0.31</td>
+          <td class="col-links"></td></tr>
+        <tr>
+          <td class="extra" colspan="4">
+            <div class="log">self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044c19d0&gt;<br/><br/>    def start(self) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Starts the Service.<br/>    <br/>        :Exceptions:<br/>         - WebDriverException : Raised either when it can&#x27;t start the service<br/>           or when it can&#x27;t connect to the service<br/>        &quot;&quot;&quot;<br/>        try:<br/>            self._start_process(self.path)<br/>        except WebDriverException as err:<br/>            if &quot;executable needs to be in PATH&quot; in err.msg:<br/>                logger.debug(&quot;driver not found in PATH, trying Selenium Manager&quot;)<br/>                browser = self.__class__.__module__.split(&quot;.&quot;)[-2]<br/>                try:<br/>&gt;                   path = SeleniumManager.driver_location(browser)<br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:97: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:68: in driver_location<br/>    result = SeleniumManager.run(args)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>args = (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)<br/><br/>    @staticmethod<br/>    def run(args: Tuple[str, str, str]) -&gt; str:<br/>        &quot;&quot;&quot;<br/>        Executes the Selenium Manager Binary.<br/>        :Args:<br/>         - args: the components of the command being executed.<br/>        :Returns: The log string containing the driver location.<br/>        &quot;&quot;&quot;<br/>        logger.debug(f&quot;Executing selenium manager with: {args}&quot;)<br/>        result = subprocess.run(args, stdout=subprocess.PIPE).stdout.decode(&quot;utf-8&quot;)<br/>    <br/>        if not re.match(&quot;^INFO\t&quot;, result):<br/>&gt;           raise WebDriverException(f&quot;Unsuccessful command executed: {args}&quot;)<br/><span class="error">E           selenium.common.exceptions.WebDriverException: Message: Unsuccessful command executed: (&#x27;/Library/Python/3.9/site-packages/selenium/webdriver/common/macos/selenium-manager&#x27;, &#x27;--browser&#x27;, &#x27;chrome&#x27;)</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/selenium_manager.py:85: WebDriverException<br/><br/>During handling of the above exception, another exception occurred:<br/><br/>    @pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>&gt;       chrome_driver = webdriver.Chrome()<br/><br/>main.py:19: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/selenium/webdriver/chrome/webdriver.py:81: in __init__<br/>    super().__init__(<br/>/Library/Python/3.9/site-packages/selenium/webdriver/chromium/webdriver.py:103: in __init__<br/>    self.service.start()<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:100: in start<br/>    raise err<br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:91: in start<br/>    self._start_process(self.path)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>self = &lt;selenium.webdriver.chrome.service.Service object at 0x1044c19d0&gt;, path = &#x27;chromedriver&#x27;<br/><br/>    def _start_process(self, path: str) -&gt; None:<br/>        &quot;&quot;&quot;<br/>        Creates a subprocess by executing the command provided.<br/>    <br/>        :param cmd: full command to execute<br/>        &quot;&quot;&quot;<br/>        cmd = [path]<br/>        cmd.extend(self.command_line_args())<br/>        try:<br/>            self.process = subprocess.Popen(<br/>                cmd,<br/>                env=self.env,<br/>                close_fds=system() != &quot;Windows&quot;,<br/>                stdout=self.log_file,<br/>                stderr=self.log_file,<br/>                stdin=PIPE,<br/>                creationflags=self.creation_flags,<br/>            )<br/>            logger.debug(f&quot;Started executable: `{self.path}` in a child process with pid: {self.process.pid}&quot;)<br/>        except TypeError:<br/>            raise<br/>        except OSError as err:<br/>            if err.errno == errno.ENOENT:<br/>&gt;               raise WebDriverException(<br/>                    f&quot;&#x27;{os.path.basename(self.path)}&#x27; executable needs to be in PATH. {self.start_error_message}&quot;<br/><span class="error">E                   selenium.common.exceptions.WebDriverException: Message: &#x27;chromedriver&#x27; executable needs to be in PATH. Please see https://chromedriver.chromium.org/home</span><br/><br/>/Library/Python/3.9/site-packages/selenium/webdriver/common/service.py:203: WebDriverException<br/> -----------------------------Captured stderr setup------------------------------ <br/>thread &#x27;main&#x27; panicked at &#x27;Downloaded file cannot be uncompressed (xml extension)&#x27;, src/files.rs:46:9
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+<br/></div></td></tr></tbody></table></body></html>
