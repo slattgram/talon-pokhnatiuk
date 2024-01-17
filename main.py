@@ -11,7 +11,7 @@ TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 
 # to generate with report pytest main.py --html=report.html --self-contained-html
-
+#f
 
 # Fixture to initialize the WebDriver
 
