@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="yes" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2b31mnrWA6vALOyo30uK6t8dubV" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.pytest for test_mails_existence.test_emails_existence.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_mails_existence.test_eng_mails.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_open_staff_pages.test_eng_staff_pages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_open_staff_pages.test_ua_staff_pages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_page_title.test_page_title.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in mail.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in main.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in profile.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_mails_existence.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_open_staff_pages.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_page_title.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in title.py.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Python tests.pytest in main.py">
+    <configuration name="pytest for title.test_title" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Dvornyk_O_FEIm_14" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;title.test_title&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Dvornyk_O_FEIm_14" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/mail.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/title.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Dvornyk_O_FEIm_14" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/title.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="pytest in main.py" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
+      <module name="Dvornyk_O_FEIm_14" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_parameters" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/main.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.pytest in main.py" />
+        <item itemvalue="Python tests.pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/title.py" />
+        <item itemvalue="Python tests.pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.py" />
+        <item itemvalue="Python tests.pytest for title.test_title" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="" />
+      <created>1705429110614</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1705429110614</updated>
+    </task>
+    <task id="LOCAL-00001" summary="yes">
+      <option name="closed" value="true" />
+      <created>1705523189230</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1705523189230</updated>
+    </task>
+    <task id="LOCAL-00002" summary="yes">
+      <option name="closed" value="true" />
+      <created>1705523378995</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1705523378995</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="yes" />
+    <option name="LAST_COMMIT_MESSAGE" value="yes" />
+  </component>
+</project>
