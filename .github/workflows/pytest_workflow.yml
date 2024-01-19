@@ -23,6 +23,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Install ChromeDriver
+        run: |
+          python -m pip install webdrivers-autoinstaller
+          python -c "import webdrivers_autoinstaller; webdrivers_autoinstaller.install()"
+
 
       - name: Run tests
         run: |
