@@ -18,7 +18,6 @@ TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 
 @pytest.fixture(autouse=True)
 def driver(request) -> webdriver.Chrome:
-    GeckoDriverManager().install()
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
     options.add_argument('--width=1600')
