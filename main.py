@@ -30,17 +30,18 @@ def driver(request) -> webdriver.Chrome:
     options = FirefoxOptions()
     options.add_argument('--width=800')
     options.add_argument('--height=800')
+    options.add_argument('--headless')
     # Setup
     print(f"\nSetting up: {browser} driver")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     driver.get(TESTING_URL)
+
     # Implicit wait setup for our framework
     driver.implicitly_wait(10)
     yield driver
     # Tear down
     print(f"\nTear down: {browser} driver")
     driver.quit()
-
 
     return driver
 
