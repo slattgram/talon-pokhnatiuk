@@ -7,7 +7,6 @@
     <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="try parallel and reporter">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -441,7 +440,31 @@
       <option name="project" value="LOCAL" />
       <updated>1705663693559</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="try parallel and reporter">
+      <option name="closed" value="true" />
+      <created>1705664466659</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1705664466659</updated>
+    </task>
+    <task id="LOCAL-00037" summary="try parallel and reporter">
+      <option name="closed" value="true" />
+      <created>1705664536773</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1705664536773</updated>
+    </task>
+    <task id="LOCAL-00038" summary="try parallel and reporter">
+      <option name="closed" value="true" />
+      <created>1705664636836</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1705664636836</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

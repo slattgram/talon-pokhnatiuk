@@ -23,7 +23,7 @@ os.environ['WDM_LOCAL'] = '1'
 
 # Fixture to initialize the WebDriver
 
-@pytest.fixture
+@pytest.fixture(autouse=True)
 def driver(request) -> webdriver.Chrome:
     # Initialize the WebDriver
     # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
