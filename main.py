@@ -1,4 +1,4 @@
-#from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 #from selenium.webdriver.chrome.service import Service as ChromeService
@@ -19,7 +19,7 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 def driver() -> webdriver.Chrome:
     # Initialize the WebDriver
     # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
-    chrome_driver = webdriver.Chrome()
+    chrome_driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
     chrome_driver.get(TESTING_URL)
     return chrome_driver
 
