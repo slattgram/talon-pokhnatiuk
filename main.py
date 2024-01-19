@@ -1,5 +1,7 @@
+#from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
+#from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -16,7 +18,7 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 @pytest.fixture
 def driver() -> webdriver.Chrome:
     # Initialize the WebDriver
-
+    # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
     chrome_driver = webdriver.Chrome()
     chrome_driver.get(TESTING_URL)
     return chrome_driver
