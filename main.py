@@ -15,7 +15,6 @@ EMAIL_FILE_PATH = "./mail.txt"
 # to generate with report pytest main.py --html=report.html --self-contained-html -n 2
 #f
 
-GeckoDriverManager().install()
 
 # Fixture to initialize the WebDriver
 
