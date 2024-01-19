@@ -17,8 +17,7 @@ TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 
 
 # Fixture to initialize the WebDriver
-
-@pytest.fixture(autouse=True)
+@pytest.fixture(autouse=True, scope='function')
 def driver(request) -> webdriver.Firefox:
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
@@ -38,6 +37,7 @@ def driver(request) -> webdriver.Firefox:
 
     # Implicit wait setup for our framework
     yield driver
+
     # Tear down
     print(f"\nTear down: gecko driver")
 
