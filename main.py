@@ -5,8 +5,11 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions as EC
 import pytest
+from selenium.webdriver.firefox.service import Service as FirefoxService
+from webdriver_manager.firefox import GeckoDriverManager
 
 TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
@@ -16,15 +19,35 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 
 # Fixture to initialize the WebDriver
 
+import requests
+import wget
+import zipfile
+import os
+
+
 @pytest.fixture
-def driver() -> webdriver.Chrome:
+def driver(request) -> webdriver.Chrome:
     # Initialize the WebDriver
     # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
 
-    chrome_version = "113.0.5672.24"
-    chrome_driver = webdriver.Chrome(executable_path=ChromeDriverManager(version=chrome_version).install())
-    chrome_driver.get(TESTING_URL)
-    return chrome_driver
+    browser = 'chrome'
+    # Default driver value
+    driver = ""
+    # Option setup to run in headless mode (in order to run this in GH Actions)
+    options = Options()
+    options.add_argument('--headless')
+    # Setup
+    print(f"\nSetting up: {browser} driver")
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    # Implicit wait setup for our framework
+    driver.implicitly_wait(10)
+    yield driver
+    # Tear down
+    print(f"\nTear down: {browser} driver")
+    driver.quit()
+
+    driver.get(TESTING_URL)
+    return driver
 
 def test_profile_eng(driver: webdriver.Chrome):
     # Wait for all elements to be present on the page
