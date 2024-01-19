@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.by import By
@@ -25,8 +27,11 @@ def driver(request) -> webdriver.Chrome:
     options.add_argument('--headless')
     # Setup
     print(f"\nSetting up: gecko driver")
-    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    gecko_service = Service(GeckoDriverManager().install())
+    time.sleep(10)
+    driver = webdriver.Firefox(service=gecko_service, options=options)
     driver.implicitly_wait(10)
+
 
     driver.get(TESTING_URL)
 
@@ -76,7 +81,7 @@ def test_profile_eng(driver: webdriver.Firefox):
 
 
 # Test function to check emails for a given language
-def test_email(driver, capsys):
+def test_email(driver: webdriver.Firefox):
     # Wait for the page to load
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "language-switcher")))
 
