@@ -19,12 +19,6 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 
 # Fixture to initialize the WebDriver
 
-import requests
-import wget
-import zipfile
-import os
-
-
 @pytest.fixture
 def driver(request) -> webdriver.Chrome:
     # Initialize the WebDriver
