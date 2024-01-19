@@ -1,42 +1,31 @@
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
-#from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support import expected_conditions as EC
 import pytest
-from selenium.webdriver.firefox.service import Service as FirefoxService
 from webdriver_manager.firefox import GeckoDriverManager
 
 TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
-EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
+EMAIL_FILE_PATH = "./mail.txt"
 
-import os
-
-os.environ['WDM_LOCAL'] = '1'
 
 # to generate with report pytest main.py --html=report.html --self-contained-html -n 2
 #f
 
 # Fixture to initialize the WebDriver
 
-@pytest.fixture(autouse=True, scope="session" )
+@pytest.fixture(autouse=True)
 def driver(request) -> webdriver.Chrome:
-    # Initialize the WebDriver
-    # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
-    browser = 'gecko'
-    # Default driver value
-    driver = ""
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
     options.add_argument('--width=1600')
     options.add_argument('--height=1600')
     options.add_argument('--headless')
     # Setup
-    print(f"\nSetting up: {browser} driver")
+    print(f"\nSetting up: gecko driver")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
     driver.get(TESTING_URL)
 
@@ -44,7 +33,7 @@ def driver(request) -> webdriver.Chrome:
     driver.implicitly_wait(10)
     yield driver
     # Tear down
-    print(f"\nTear down: {browser} driver")
+    print(f"\nTear down: gecko driver")
     driver.quit()
 
     return driver
@@ -105,14 +94,6 @@ def test_email(driver, capsys):
         if container:
             if container[0].text != '':
                 assert container[0].text in mails
-
-
-
-# Run the test
-
-
-
-
 
 def test_title(driver: webdriver.Firefox):
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "language-switcher")))
