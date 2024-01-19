@@ -19,17 +19,19 @@ TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 # Fixture to initialize the WebDriver
 
 @pytest.fixture(autouse=True)
-def driver(request) -> webdriver.Chrome:
+def driver(request) -> webdriver.Firefox:
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
     options.add_argument('--width=1600')
     options.add_argument('--height=1600')
     options.add_argument('--headless')
+
+    profile = webdriver.FirefoxProfile()
+    profile.set_preference("browser.cache.disk.enable", False)
     # Setup
     print(f"\nSetting up: gecko driver")
     gecko_service = Service(GeckoDriverManager().install())
-    time.sleep(10)
-    driver = webdriver.Firefox(service=gecko_service, options=options)
+    driver = webdriver.Firefox(service=gecko_service, options=options, firefox_profile=profile)
 
 
     driver.get(TESTING_URL)

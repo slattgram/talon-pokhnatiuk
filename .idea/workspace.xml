@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="try parallel and reporter">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" afterDir="false" />
+    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="try parallel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,22 +159,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1705429110614</updated>
-    </task>
-    <task id="LOCAL-00003" summary="yes">
-      <option name="closed" value="true" />
-      <created>1705524157729</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1705524157729</updated>
-    </task>
-    <task id="LOCAL-00004" summary="idk">
-      <option name="closed" value="true" />
-      <created>1705525028649</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1705525028649</updated>
     </task>
     <task id="LOCAL-00005" summary="???">
       <option name="closed" value="true" />
@@ -553,7 +536,23 @@
       <option name="project" value="LOCAL" />
       <updated>1705667272303</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="try parallel and reporter">
+      <option name="closed" value="true" />
+      <created>1705667613033</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1705667613033</updated>
+    </task>
+    <task id="LOCAL-00053" summary="try parallel">
+      <option name="closed" value="true" />
+      <created>1705667854876</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1705667854876</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -568,6 +567,7 @@
     <MESSAGE value="=j" />
     <MESSAGE value="try firefox" />
     <MESSAGE value="try parallel and reporter" />
-    <option name="LAST_COMMIT_MESSAGE" value="try parallel and reporter" />
+    <MESSAGE value="try parallel" />
+    <option name="LAST_COMMIT_MESSAGE" value="try parallel" />
   </component>
 </project>
