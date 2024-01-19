@@ -30,7 +30,6 @@ def driver(request) -> webdriver.Chrome:
     gecko_service = Service(GeckoDriverManager().install())
     time.sleep(10)
     driver = webdriver.Firefox(service=gecko_service, options=options)
-    driver.implicitly_wait(10)
 
 
     driver.get(TESTING_URL)
