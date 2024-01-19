@@ -15,10 +15,13 @@ EMAIL_FILE_PATH = "./mail.txt"
 # to generate with report pytest main.py --html=report.html --self-contained-html -n 2
 #f
 
+GeckoDriverManager().install()
+
 # Fixture to initialize the WebDriver
 
 @pytest.fixture(autouse=True)
 def driver(request) -> webdriver.Chrome:
+    GeckoDriverManager().install()
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
     options.add_argument('--width=1600')
