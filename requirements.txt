@@ -3,4 +3,3 @@ pytest==7.4.1
 webdriver-manager==3.5.1
 pytest-html
 pytest-xdist
-os
