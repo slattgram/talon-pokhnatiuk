@@ -37,7 +37,6 @@ def driver(request) -> webdriver.Chrome:
     yield driver
     # Tear down
     print(f"\nTear down: gecko driver")
-    driver.quit()
 
     return driver
 
