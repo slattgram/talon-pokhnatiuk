@@ -26,10 +26,11 @@ def driver(request) -> webdriver.Chrome:
     # Setup
     print(f"\nSetting up: gecko driver")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    driver.implicitly_wait(10)
+
     driver.get(TESTING_URL)
 
     # Implicit wait setup for our framework
-    driver.implicitly_wait(10)
     yield driver
     # Tear down
     print(f"\nTear down: gecko driver")
