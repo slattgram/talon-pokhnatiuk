@@ -9,7 +9,7 @@ import pytest
 from webdriver_manager.firefox import GeckoDriverManager
 
 TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
-EMAIL_FILE_PATH = "./mail.txt"
+EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 
 
 # to generate with report pytest main.py --html=report.html --self-contained-html -n 2
