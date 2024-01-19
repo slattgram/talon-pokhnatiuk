@@ -23,6 +23,12 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Set Chrome version
+        run: echo "google-chrome-stable google-chrome-stable/version select 113.0.5672.24-1" | sudo debconf-set-selections
+
+      - name: Install Chrome
+        run: sudo apt-get install -y google-chrome-stable
+
 
       - name: Run tests
         run: |

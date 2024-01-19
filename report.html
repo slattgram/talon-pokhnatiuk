@@ -429,10 +429,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 17-Jan-2024 at 23:59:10 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 19-Jan-2024 at 11:28:00 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Summary</h2>
-    <p>3 tests ran in 25.59 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>0 tests ran in 2.15 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">3 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -443,374 +443,63 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="passed results-table-row">
+      <tbody class="error results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">main.py::test_profile_eng</td>
-          <td class="col-duration">18.70</td>
+          <td class="col-result">Error</td>
+          <td class="col-name">main.py::test_profile_eng::setup</td>
+          <td class="col-duration">0.63</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">@pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>        # service=ChromeService(ChromeDriverManager().install())   doesn&#x27;t work :(<br/>    <br/>        chrome_version = &quot;91.0.4472.124&quot;<br/>&gt;       chrome_driver = webdriver.Chrome(executable_path=ChromeDriverManager(&#x27;/edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip&#x27;, url=&#x27;https://edgedl.me.gvt1.com&#x27;).install())<br/><br/>main.py:25: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/webdriver_manager/chrome.py:34: in install<br/>    driver_path = self._get_driver_path(self.driver)<br/>/Library/Python/3.9/site-packages/webdriver_manager/manager.py:30: in _get_driver_path<br/>    file = download_file(driver.get_url())<br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:94: in download_file<br/>    validate_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>resp = &lt;Response [404]&gt;<br/><br/>    def validate_response(resp):<br/>        if resp.status_code == 404:<br/>&gt;           raise ValueError(&quot;There is no such driver by url {}&quot;.format(resp.url))<br/><span class="error">E           ValueError: There is no such driver by url https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip</span><br/><br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:80: ValueError<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current google-chrome version is 120.0.6099
+[WDM] - There is no [mac64] chromedriver for browser 120.0.6099 in cache
+[WDM] - Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current google-chrome version is 120.0.6099
+INFO     WDM:logger.py:24 There is no [mac64] chromedriver for browser 120.0.6099 in cache
+INFO     WDM:logger.py:24 Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">main.py::test_email</td>
-          <td class="col-duration">4.38</td>
+          <td class="col-result">Error</td>
+          <td class="col-name">main.py::test_email::setup</td>
+          <td class="col-duration">0.68</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log"> ------------------------------Captured stdout call------------------------------ <br/>
-Checking email 1: yuriy.furhala@lnu.edu.ua against the expected emails.
-
-Checking email 2: serhiy.velhosh@lnu.edu.ua against the expected emails.
-
-Checking email 3: orest.dzendzelyuk@lnu.edu.ua against the expected emails.
-
-Checking email 4: iryna.koflyuk@lnu.edu.ua against the expected emails.
-
-Checking email 5: andriy.luchechko@lnu.edu.ua against the expected emails.
-
-Checking email 6: lesya.kostyuk@lnu.edu.ua against the expected emails.
-
-Email 7 container is empty. Skipping assertion.
-
-Checking email 8: oleh.kushnir@lnu.edu.ua against the expected emails.
-
-Checking email 9: oleh.krupych@lnu.edu.ua against the expected emails.
-
-Checking email 10: ihor.polovynko@lnu.edu.ua against the expected emails.
-
-Checking email 11: serhiy.sveleba@lnu.edu.ua against the expected emails.
-
-Checking email 12: volodymyr.grabovskyi@lnu.edu.ua against the expected emails.
-
-Checking email 13: marta.dufanets@lnu.edu.ua against the expected emails.
-
-Checking email 14: ivan.katerynchuk@lnu.edu.ua against the expected emails.
-
-Checking email 15: yuriy.korchak@lnu.edu.ua against the expected emails.
-
-Checking email 16: ivan.kuno@lnu.edu.ua against the expected emails.
-
-Checking email 17: galyna.panochko@lnu.edu.ua against the expected emails.
-
-Checking email 18: mykhailo.rusyniak@lnu.edu.ua against the expected emails.
-
-Checking email 19: volodymyr.franiv@lnu.edu.ua against the expected emails.
-
-Checking email 20: yuriy.furhala@lnu.edu.ua against the expected emails.
-
-Checking email 21: bohdan.horon@lnu.edu.ua against the expected emails.
-
-Checking email 22: oleh.izhyk@lnu.edu.ua against the expected emails.
-
-Checking email 23: Mariana.Mostova@lnu.edu.ua against the expected emails.
-
-Checking email 24: ivan.fedorovych@lnu.edu.ua against the expected emails.
-
-Checking email 25: halyna.dutsyak@lnu.edu.ua against the expected emails.
-
-Email 26 container is empty. Skipping assertion.
-
-Email 27 container is empty. Skipping assertion.
-
-Email 28 container is empty. Skipping assertion.
-
-Email 29 container is empty. Skipping assertion.
-
-Checking email 30: vasyltaras.luchka@lnu.edu.ua against the expected emails.
-
-Email 31 container is empty. Skipping assertion.
-
-Checking email 32: Andrii.Fesiuk@lnu.edu.ua against the expected emails.
-
-Email 33 container is empty. Skipping assertion.
-
-Checking email 34: igor.olenych@lnu.edu.ua against the expected emails.
-
-Checking email 35: halyna.klym@lnu.edu.ua against the expected emails.
-
-Checking email 36: lyubomyr.monastyrskyy@lnu.edu.ua against the expected emails.
-
-Checking email 37: yaroslav.boyko@lnu.edu.ua against the expected emails.
-
-Checking email 38: oleh.sinkevych@lnu.edu.ua against the expected emails.
-
-Checking email 39: bohdan.sokolovskyy@lnu.edu.ua against the expected emails.
-
-Checking email 40: Orest.Fliunt@lnu.edu.ua against the expected emails.
-
-Checking email 41: mykhailo.pavlyk@lnu.edu.ua against the expected emails.
-
-Checking email 42: marianna.prytula@lnu.edu.ua against the expected emails.
-
-Checking email 43: oleksandr.futey@lnu.edu.ua against the expected emails.
-
-Email 44 container is empty. Skipping assertion.
-
-Checking email 45: Ivan.Karbovnyk@lnu.edu.ua against the expected emails.
-
-Checking email 46: Ivan.Bolesta@lnu.edu.ua against the expected emails.
-
-Checking email 47: mariia.nazarkevych@lnu.edu.ua against the expected emails.
-
-Checking email 48: serhii.rendziniak@lnu.edu.ua against the expected emails.
-
-Checking email 49: Bohdan.Blahitko@lnu.edu.ua against the expected emails.
-
-Checking email 50: serhiy.velhosh@lnu.edu.ua against the expected emails.
-
-Checking email 51: Hryhoriy.Zlobin@lnu.edu.ua against the expected emails.
-
-Checking email 52: bogdana.kalivoshka@lnu.edu.ua against the expected emails.
-
-Checking email 53: ihor.katernyak@lnu.edu.ua against the expected emails.
-
-Checking email 54: oleksiy.kushnir@lnu.edu.ua against the expected emails.
-
-Checking email 55: Zinoviy.Lyubun@lnu.edu.ua against the expected emails.
-
-Checking email 56: Vasyl.Rabyk@lnu.edu.ua against the expected emails.
-
-Checking email 57: rostyslav.romanyshyn@lnu.edu.ua against the expected emails.
-
-Checking email 58: khrystyna.serednytska@lnu.edu.ua against the expected emails.
-
-Checking email 59: Ivan.Khvyshchun@lnu.edu.ua against the expected emails.
-
-Checking email 60: viktor.dzikovskyy@lnu.edu.ua against the expected emails.
-
-Checking email 61: Pavlo.Levush@lnu.edu.ua against the expected emails.
-
-Checking email 62: petro.rykovskyy@lnu.edu.ua against the expected emails.
-
-Checking email 63: Valeriy.Shevchuk@lnu.edu.ua against the expected emails.
-
-Checking email 64: Yaroslav.Shmyhelskyy@lnu.edu.ua against the expected emails.
-
-Checking email 65: Lesya.Romanyak@lnu.edu.ua against the expected emails.
-
-Email 66 container is empty. Skipping assertion.
-
-Email 67 container is empty. Skipping assertion.
-
-Checking email 68: bohdan.pavlyk@lnu.edu.ua against the expected emails.
-
-Checking email 69: pavlo.galiy@lnu.edu.ua against the expected emails.
-
-Checking email 70: andriy.luchechko@lnu.edu.ua against the expected emails.
-
-Checking email 71: lyudmyla.kostyk@lnu.edu.ua against the expected emails.
-
-Checking email 72: roman.lys@lnu.edu.ua against the expected emails.
-
-Checking email 73: ihor.matviyishyn@lnu.edu.ua against the expected emails.
-
-Checking email 74: dmytro.slobodzyan@lnu.edu.ua against the expected emails.
-
-Email 75 container is empty. Skipping assertion.
-
-Checking email 76: markiyan.kushlyk@lnu.edu.ua against the expected emails.
-
-Checking email 77: yaroslav.shpotyuk@lnu.edu.ua against the expected emails.
-
-Checking email 78: roman.shuvar@lnu.edu.ua against the expected emails.
-
-Checking email 79: oleh.buhrii@lnu.edu.ua against the expected emails.
-
-Checking email 80: koman.bohdan@lnu.edu.ua against the expected emails.
-
-Checking email 81: igor.ogirko@lnu.edu.ua against the expected emails.
-
-Checking email 82: bohdan.pavlyshenko@lnu.edu.ua against the expected emails.
-
-Checking email 83: volodymyr.yuzevych@lnu.edu.ua against the expected emails.
-
-Email 84 container is empty. Skipping assertion.
-
-Email 85 container is empty. Skipping assertion.
-
-Checking email 86: lidiya.demkiv@lnu.edu.ua against the expected emails.
-
-Checking email 87: vasyl.liashkevych@lnu.edu.ua against the expected emails.
-
-Checking email 88: taras.nenchuk@lnu.edu.ua against the expected emails.
-
-Checking email 89: roman.stakhira@lnu.edu.ua against the expected emails.
-
-Checking email 90: tkachenko.oleksandr@lnu.edu.ua against the expected emails.
-
-Email 91 container is empty. Skipping assertion.
-
-Checking email 92: haliatkinoleksandr@gmail.com against the expected emails.
-
-Email 93 container is empty. Skipping assertion.
-
-Checking email 94: oleh.kaskun@lnu.edu.ua against the expected emails.
-
-Checking email 95: igor.kolych@lnu.edu.ua against the expected emails.
-
-Checking email 96: petro.kulyk@lnu.edu.ua against the expected emails.
-
-Email 97 container is empty. Skipping assertion.
-
-Checking email 98: mariia.liashkevych@lnu.edu.ua against the expected emails.
-
-Email 99 container is empty. Skipping assertion.
-
-Checking email 100: iryna.mysiuk@lnu.edu.ua against the expected emails.
-
-Checking email 101: roman.mysiuk@lnu.edu.ua against the expected emails.
-
-Checking email 102: oleksandra.mokii@lnu.edu.ua against the expected emails.
-
-Checking email 103: vitalius.parubochyi@lnu.edu.ua against the expected emails.
-
-Email 104 container is empty. Skipping assertion.
-
-Email 105 container is empty. Skipping assertion.
-
-Checking email 106: volodymyra.melnyk@lnu.edu.ua against the expected emails.
-
-Checking email 107: bohdan.buhrii@lnu.edu.ua against the expected emails.
-
-Email 108 container is empty. Skipping assertion.
-
-Checking email 109: ihor.drozdov@lnu.edu.ua against the expected emails.
-
-Email 110 container is empty. Skipping assertion.
-
-Checking email 111: Oleh.Sihunov@lnu.edu.ua against the expected emails.
-
-Email 112 container is empty. Skipping assertion.
-
-Checking email 113: mykola.stasiuk@lnu.edu.ua against the expected emails.
-
-Checking email 114: MarkiyanFostyak@lnu.edu.ua against the expected emails.
-
-Checking email 115: Yurii.Tsudzenko@lnu.edu.ua against the expected emails.
-
-Email 116 container is empty. Skipping assertion.
-
-Checking email 117: oleh.bordun@lnu.edu.ua against the expected emails.
-
-Checking email 118: taras.demkiv@lnu.edu.ua against the expected emails.
-
-Checking email 119: volodymyr.bihdai@lnu.edu.ua against the expected emails.
-
-Checking email 120: roman.bihun@lnu.edu.ua against the expected emails.
-
-Email 121 container is empty. Skipping assertion.
-
-Checking email 122: ihor.kukharskyy@lnu.edu.ua against the expected emails.
-
-Checking email 123: ivanna.medvid@lnu.edu.ua against the expected emails.
-
-Checking email 124: bohdan.penyukh@lnu.edu.ua against the expected emails.
-
-Checking email 125: vadym.ptashnyk@lnu.edu.ua against the expected emails.
-
-Checking email 126: olha.koplak@lnu.edu.ua against the expected emails.
-
-Checking email 127: iryna.koflyuk@lnu.edu.ua against the expected emails.
-
-Checking email 128: vitalii.maksymych@lnu.edu.ua against the expected emails.
-
-Checking email 129: danylo.maksymchuk@lnu.edu.ua against the expected emails.
-
-Checking email 130: petro.parandiy@lnu.edu.ua against the expected emails.
-
-Checking email 131: galyna.smetana@lnu.edu.ua against the expected emails.
-
-Checking email 132: roman.kovtun@lnu.edu.ua against the expected emails.
-
-Email 133 container is empty. Skipping assertion.
-
-Email 134 container is empty. Skipping assertion.
-
-Checking email 135: ivan.fedorovych@lnu.edu.ua against the expected emails.
-
-Checking email 136: iryna.azarova@lnu.edu.ua against the expected emails.
-
-Checking email 137: serhii.pashchenko@lnu.edu.ua against the expected emails.
-
-Checking email 138: volodymyr.pysarevskyi@lnu.edu.ua against the expected emails.
-
-Checking email 139: ihor.bordiuzhenko@lnu.edu.ua against the expected emails.
-
-Email 140 container is empty. Skipping assertion.
-
-Checking email 141: olha.riabchuk@lnu.edu.ua against the expected emails.
-
-Email 142 container is empty. Skipping assertion.
-
-Checking email 143: Valeriy.Shevchuk@lnu.edu.ua against the expected emails.
-
-Checking email 144: Lesya.Romanyak@lnu.edu.ua against the expected emails.
-
-Checking email 145: oleksiy.kushnir@lnu.edu.ua against the expected emails.
-
-Email 146 container is empty. Skipping assertion.
-
-Email 147 container is empty. Skipping assertion.
-
-Email 148 container is empty. Skipping assertion.
-
-Checking email 149: vyacheslav.vasyltsiv@lnu.edu.ua against the expected emails.
-
-Email 150 container is empty. Skipping assertion.
-
-Email 151 container is empty. Skipping assertion.
-
-Email 152 container is empty. Skipping assertion.
-
-Email 153 container is empty. Skipping assertion.
-
-Email 154 container is empty. Skipping assertion.
-
-Checking email 155: olha.koplak@lnu.edu.ua against the expected emails.
-
-Checking email 156: ivan.khomyshyn@lnu.edu.ua against the expected emails.
-
-Email 157 container is empty. Skipping assertion.
-
-Email 158 container is empty. Skipping assertion.
-
-Checking email 159: romana.kosovska@lnu.edu.ua against the expected emails.
-
-Checking email 160: petro.rykovskyy@lnu.edu.ua against the expected emails.
-
-Checking email 161: viktoriya.odintsova@lnu.edu.ua against the expected emails.
-
-Email 162 container is empty. Skipping assertion.
-
-Checking email 163: orest.dzendzelyuk@lnu.edu.ua against the expected emails.
-
-Email 164 container is empty. Skipping assertion.
-
-Checking email 165: roman.yaremyk@lnu.edu.ua against the expected emails.
-
-Checking email 166: vasyl.hetman@lnu.edu.ua against the expected emails.
-
-Checking email 167: yaroslav.shpotyuk@lnu.edu.ua against the expected emails.
-
-Email 168 container is empty. Skipping assertion.
-
-Checking email 169: vyacheslav.vasyltsiv@lnu.edu.ua against the expected emails.
-
-Checking email 170: markiyan.kushlyk@lnu.edu.ua against the expected emails.
-
-Email 171 container is empty. Skipping assertion.
-
-Email 172 container is empty. Skipping assertion.
-<br/></div></td></tr></tbody>
-      <tbody class="passed results-table-row">
+            <div class="log">@pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>        # service=ChromeService(ChromeDriverManager().install())   doesn&#x27;t work :(<br/>    <br/>        chrome_version = &quot;91.0.4472.124&quot;<br/>&gt;       chrome_driver = webdriver.Chrome(executable_path=ChromeDriverManager(&#x27;/edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip&#x27;, url=&#x27;https://edgedl.me.gvt1.com&#x27;).install())<br/><br/>main.py:25: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/webdriver_manager/chrome.py:34: in install<br/>    driver_path = self._get_driver_path(self.driver)<br/>/Library/Python/3.9/site-packages/webdriver_manager/manager.py:30: in _get_driver_path<br/>    file = download_file(driver.get_url())<br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:94: in download_file<br/>    validate_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>resp = &lt;Response [404]&gt;<br/><br/>    def validate_response(resp):<br/>        if resp.status_code == 404:<br/>&gt;           raise ValueError(&quot;There is no such driver by url {}&quot;.format(resp.url))<br/><span class="error">E           ValueError: There is no such driver by url https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip</span><br/><br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:80: ValueError<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current google-chrome version is 120.0.6099
+[WDM] - There is no [mac64] chromedriver for browser 120.0.6099 in cache
+[WDM] - Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current google-chrome version is 120.0.6099
+INFO     WDM:logger.py:24 There is no [mac64] chromedriver for browser 120.0.6099 in cache
+INFO     WDM:logger.py:24 Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip<br/></div></td></tr></tbody>
+      <tbody class="error results-table-row">
         <tr>
-          <td class="col-result">Passed</td>
-          <td class="col-name">main.py::test_title</td>
-          <td class="col-duration">2.20</td>
+          <td class="col-result">Error</td>
+          <td class="col-name">main.py::test_title::setup</td>
+          <td class="col-duration">0.67</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="empty log">No log output captured.</div></td></tr></tbody></table></body></html>
+            <div class="log">@pytest.fixture<br/>    def driver() -&gt; webdriver.Chrome:<br/>        # Initialize the WebDriver<br/>        # service=ChromeService(ChromeDriverManager().install())   doesn&#x27;t work :(<br/>    <br/>        chrome_version = &quot;91.0.4472.124&quot;<br/>&gt;       chrome_driver = webdriver.Chrome(executable_path=ChromeDriverManager(&#x27;/edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip&#x27;, url=&#x27;https://edgedl.me.gvt1.com&#x27;).install())<br/><br/>main.py:25: <br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/>/Library/Python/3.9/site-packages/webdriver_manager/chrome.py:34: in install<br/>    driver_path = self._get_driver_path(self.driver)<br/>/Library/Python/3.9/site-packages/webdriver_manager/manager.py:30: in _get_driver_path<br/>    file = download_file(driver.get_url())<br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:94: in download_file<br/>    validate_response(response)<br/>_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ <br/><br/>resp = &lt;Response [404]&gt;<br/><br/>    def validate_response(resp):<br/>        if resp.status_code == 404:<br/>&gt;           raise ValueError(&quot;There is no such driver by url {}&quot;.format(resp.url))<br/><span class="error">E           ValueError: There is no such driver by url https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip</span><br/><br/>/Library/Python/3.9/site-packages/webdriver_manager/utils.py:80: ValueError<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current google-chrome version is 120.0.6099
+[WDM] - There is no [mac64] chromedriver for browser 120.0.6099 in cache
+[WDM] - Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current google-chrome version is 120.0.6099
+INFO     WDM:logger.py:24 There is no [mac64] chromedriver for browser 120.0.6099 in cache
+INFO     WDM:logger.py:24 Trying to download new driver from https://edgedl.me.gvt1.com//edgedl/chrome/chrome-for-testing/120.0.6099.109/mac-arm64/chromedriver-mac-arm64.zip/chromedriver_mac64.zip<br/></div></td></tr></tbody></table></body></html>
