@@ -30,7 +30,7 @@ def driver(request) -> webdriver.Chrome:
     options = FirefoxOptions()
     options.add_argument('--width=1600')
     options.add_argument('--height=1600')
-    #options.add_argument('--headless')
+    options.add_argument('--headless')
     # Setup
     print(f"\nSetting up: {browser} driver")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
