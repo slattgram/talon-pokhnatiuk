@@ -429,10 +429,10 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
 }
 </script>
     <h1>report.html</h1>
-    <p>Report generated on 19-Jan-2024 at 14:52:17 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
+    <p>Report generated on 19-Jan-2024 at 14:53:07 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a> v3.1.1</p>
     <h2>Summary</h2>
-    <p>0 tests ran in 0.35 seconds. </p>
-    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">0 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">3 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
+    <p>3 tests ran in 23.71 seconds. </p>
+    <p class="filter" hidden="true">(Un)check the boxes to filter the results.</p><input checked="true" class="filter" data-test-result="passed" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="passed">3 passed</span>, <input checked="true" class="filter" data-test-result="skipped" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="skipped">0 skipped</span>, <input checked="true" class="filter" data-test-result="failed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="failed">0 failed</span>, <input checked="true" class="filter" data-test-result="error" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="error">0 errors</span>, <input checked="true" class="filter" data-test-result="xfailed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xfailed">0 expected failures</span>, <input checked="true" class="filter" data-test-result="xpassed" disabled="true" hidden="true" name="filter_checkbox" onChange="filterTable(this)" type="checkbox"/><span class="xpassed">0 unexpected passes</span>
     <h2>Results</h2>
     <table id="results-table">
       <thead id="results-table-head">
@@ -443,30 +443,75 @@ function filterTable(elem) { // eslint-disable-line no-unused-vars
           <th class="sortable links" col="links">Links</th></tr>
         <tr hidden="true" id="not-found-message">
           <th colspan="4">No results found. Try to check the filters</th></tr></thead>
-      <tbody class="error results-table-row">
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_email::setup</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_profile_eng</td>
+          <td class="col-duration">23.23</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>file /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py, line 82<br/>  def test_email(driver: webdriver.Firefox):<br/><span class="error">E       fixture &#x27;driver&#x27; not found</span><br/>&gt;       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, doctest_namespace, extra, include_metadata_in_junit_xml, metadata, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, testrun_uid, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, worker_id<br/>&gt;       use &#x27;pytest --fixtures [testpath]&#x27; for help on them.<br/><br/>/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py:82[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
+            <div class="log">[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/> -----------------------------Captured stdout setup------------------------------ <br/>
+Setting up: gecko driver
+<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current firefox version is 121.0.1
+[WDM] - Get LATEST driver version for 121.0.1
+[WDM] - Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current firefox version is 121.0.1
+INFO     WDM:logger.py:24 Get LATEST driver version for 121.0.1
+INFO     WDM:logger.py:24 Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache<br/> ----------------------------Captured stdout teardown---------------------------- <br/>
+Tear down: gecko driver
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_title::setup</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_email</td>
+          <td class="col-duration">3.76</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>file /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py, line 100<br/>  def test_title(driver: webdriver.Firefox):<br/><span class="error">E       fixture &#x27;driver&#x27; not found</span><br/>&gt;       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, doctest_namespace, extra, include_metadata_in_junit_xml, metadata, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, testrun_uid, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, worker_id<br/>&gt;       use &#x27;pytest --fixtures [testpath]&#x27; for help on them.<br/><br/>/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py:100[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/></div></td></tr></tbody>
-      <tbody class="error results-table-row">
+            <div class="log">[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw1] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/> -----------------------------Captured stdout setup------------------------------ <br/>
+Setting up: gecko driver
+<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current firefox version is 121.0.1
+[WDM] - Get LATEST driver version for 121.0.1
+[WDM] - Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current firefox version is 121.0.1
+INFO     WDM:logger.py:24 Get LATEST driver version for 121.0.1
+INFO     WDM:logger.py:24 Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache<br/> ----------------------------Captured stdout teardown---------------------------- <br/>
+Tear down: gecko driver
+<br/></div></td></tr></tbody>
+      <tbody class="passed results-table-row">
         <tr>
-          <td class="col-result">Error</td>
-          <td class="col-name">main.py::test_profile_eng::setup</td>
-          <td class="col-duration">0.00</td>
+          <td class="col-result">Passed</td>
+          <td class="col-name">main.py::test_title</td>
+          <td class="col-duration">3.19</td>
           <td class="col-links"></td></tr>
         <tr>
           <td class="extra" colspan="4">
-            <div class="log">[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>file /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py, line 43<br/>  def test_profile_eng(driver: webdriver.Firefox):<br/><span class="error">E       fixture &#x27;driver&#x27; not found</span><br/>&gt;       available fixtures: anyio_backend, anyio_backend_name, anyio_backend_options, cache, capfd, capfdbinary, caplog, capsys, capsysbinary, doctest_namespace, extra, include_metadata_in_junit_xml, metadata, monkeypatch, pytestconfig, record_property, record_testsuite_property, record_xml_attribute, recwarn, testrun_uid, tmp_path, tmp_path_factory, tmpdir, tmpdir_factory, worker_id<br/>&gt;       use &#x27;pytest --fixtures [testpath]&#x27; for help on them.<br/><br/>/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/main.py:43[gw0] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/></div></td></tr></tbody></table></body></html>
+            <div class="log">[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/>[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3[gw2] darwin -- Python 3.9.6 /Library/Developer/CommandLineTools/usr/bin/python3<br/> -----------------------------Captured stdout setup------------------------------ <br/>
+Setting up: gecko driver
+<br/> -----------------------------Captured stderr setup------------------------------ <br/>[WDM] - 
+
+[WDM] - ====== WebDriver manager ======
+[WDM] - Current firefox version is 121.0.1
+[WDM] - Get LATEST driver version for 121.0.1
+[WDM] - Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache
+<br/> -------------------------------Captured log setup------------------------------- <br/>INFO     WDM:logger.py:24 
+
+INFO     WDM:logger.py:24 ====== WebDriver manager ======
+INFO     WDM:logger.py:24 Current firefox version is 121.0.1
+INFO     WDM:logger.py:24 Get LATEST driver version for 121.0.1
+INFO     WDM:logger.py:24 Driver [/Users/dmytropokhnatiuk/.wdm/drivers/geckodriver/macos/v0.34.0/geckodriver] found in cache<br/> ----------------------------Captured stdout teardown---------------------------- <br/>
+Tear down: gecko driver
+<br/></div></td></tr></tbody></table></body></html>
