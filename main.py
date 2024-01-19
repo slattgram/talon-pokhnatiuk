@@ -4,8 +4,8 @@ from selenium.common.exceptions import NoSuchElementException
 #from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from selenium.webdriver.support import expected_conditions as EC
 import pytest
 from selenium.webdriver.firefox.service import Service as FirefoxService
@@ -23,16 +23,17 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 def driver(request) -> webdriver.Chrome:
     # Initialize the WebDriver
     # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
-
     browser = 'chrome'
     # Default driver value
     driver = ""
     # Option setup to run in headless mode (in order to run this in GH Actions)
-    options = Options()
-    options.add_argument('--headless')
+    options = FirefoxOptions()
+    options.add_argument('--width=800')
+    options.add_argument('--height=800')
     # Setup
     print(f"\nSetting up: {browser} driver")
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+    driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
+    driver.get(TESTING_URL)
     # Implicit wait setup for our framework
     driver.implicitly_wait(10)
     yield driver
@@ -40,10 +41,10 @@ def driver(request) -> webdriver.Chrome:
     print(f"\nTear down: {browser} driver")
     driver.quit()
 
-    driver.get(TESTING_URL)
+
     return driver
 
-def test_profile_eng(driver: webdriver.Chrome):
+def test_profile_eng(driver: webdriver.Firefox):
     # Wait for all elements to be present on the page
     WebDriverWait(driver, 10).until(EC.presence_of_all_elements_located((By.CSS_SELECTOR, "*")))
 
@@ -113,7 +114,7 @@ def test_email(driver, capsys):
 
 
 
-def test_title(driver: webdriver.Chrome):
+def test_title(driver: webdriver.Firefox):
     WebDriverWait(driver, 10).until(EC.visibility_of_element_located((By.CLASS_NAME, "language-switcher")))
 
     try:
