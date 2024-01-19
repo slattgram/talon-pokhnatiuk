@@ -14,7 +14,7 @@ from webdriver_manager.firefox import GeckoDriverManager
 TESTING_URL = "https://electronics.lnu.edu.ua/about/staff/"
 EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 
-# to generate with report pytest main.py --html=report.html --self-contained-html
+# to generate with report pytest main.py --html=report.html --self-contained-html -n 2
 #f
 
 # Fixture to initialize the WebDriver

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="=j">
+    <list default="true" id="838146f7-c8a1-46bf-80d5-1b7087229f37" name="Changes" comment="try firefox">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/pytest_workflow.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/report.html" beforeDir="false" afterPath="$PROJECT_DIR$/report.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,33 +28,49 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Python tests.Python tests for main.test_profile_eng.executor": "Run",
-    "Python tests.pytest for test_mails_existence.test_emails_existence.executor": "Run",
-    "Python tests.pytest for test_mails_existence.test_eng_mails.executor": "Run",
-    "Python tests.pytest for test_open_staff_pages.test_eng_staff_pages.executor": "Run",
-    "Python tests.pytest for test_open_staff_pages.test_ua_staff_pages.executor": "Run",
-    "Python tests.pytest for test_page_title.test_page_title.executor": "Run",
-    "Python tests.pytest in mail.py.executor": "Run",
-    "Python tests.pytest in main.py.executor": "Run",
-    "Python tests.pytest in profile.py.executor": "Run",
-    "Python tests.pytest in test_mails_existence.py.executor": "Run",
-    "Python tests.pytest in test_open_staff_pages.py.executor": "Run",
-    "Python tests.pytest in test_page_title.py.executor": "Run",
-    "Python tests.pytest in title.py.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for main.test_email.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for main.test_profile_eng.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_mails_existence.test_emails_existence.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_mails_existence.test_eng_mails.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_open_staff_pages.test_eng_staff_pages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_open_staff_pages.test_ua_staff_pages.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest for test_page_title.test_page_title.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in mail.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in main.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in profile.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_mails_existence.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_open_staff_pages.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in test_page_title.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.pytest in title.py.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python tests.pytest in main.py">
+  <component name="RunManager" selected="Python tests.Python tests for main.test_email">
+    <configuration name="Python tests for main.test_email" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Pokhnatiuk TALON FEIm-14" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;main.test_email&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
     <configuration name="Python tests for main.test_profile_eng" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
       <module name="Pokhnatiuk TALON FEIm-14" />
       <option name="ENV_FILES" value="" />
@@ -65,23 +83,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;main.test_profile_eng&quot;" />
-      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration name="pytest for title.test_title" type="tests" factoryName="py.test" temporary="true" nameIsGenerated="true">
-      <module name="Dvornyk_O_FEIm_14" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_keywords" value="&quot;&quot;" />
-      <option name="_new_parameters" value="&quot;&quot;" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;title.test_title&quot;" />
       <option name="_new_targetType" value="&quot;PYTHON&quot;" />
       <method v="2" />
     </configuration>
@@ -138,11 +139,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python tests.Python tests for main.test_email" />
         <item itemvalue="Python tests.Python tests for main.test_profile_eng" />
         <item itemvalue="Python tests.pytest in main.py" />
         <item itemvalue="Python tests.pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/title.py" />
         <item itemvalue="Python tests.pytest in /Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.py" />
-        <item itemvalue="Python tests.pytest for title.test_title" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +403,39 @@
       <option name="project" value="LOCAL" />
       <updated>1705657627270</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="try firefox">
+      <option name="closed" value="true" />
+      <created>1705658779189</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1705658779189</updated>
+    </task>
+    <task id="LOCAL-00032" summary="try firefox">
+      <option name="closed" value="true" />
+      <created>1705658848717</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1705658848717</updated>
+    </task>
+    <task id="LOCAL-00033" summary="try firefox">
+      <option name="closed" value="true" />
+      <created>1705660613767</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1705660613767</updated>
+    </task>
+    <task id="LOCAL-00034" summary="try firefox">
+      <option name="closed" value="true" />
+      <created>1705660662401</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1705660662401</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -415,6 +448,7 @@
     <MESSAGE value="?" />
     <MESSAGE value="=" />
     <MESSAGE value="=j" />
-    <option name="LAST_COMMIT_MESSAGE" value="=j" />
+    <MESSAGE value="try firefox" />
+    <option name="LAST_COMMIT_MESSAGE" value="try firefox" />
   </component>
 </project>
