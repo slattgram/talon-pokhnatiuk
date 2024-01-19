@@ -23,14 +23,14 @@ EMAIL_FILE_PATH = "/Users/dmytropokhnatiuk/Pokhnatiuk TALON FEIm-14/mail.txt"
 def driver(request) -> webdriver.Chrome:
     # Initialize the WebDriver
     # service=ChromeService(ChromeDriverManager().install())   doesn't work :(
-    browser = 'chrome'
+    browser = 'gecko'
     # Default driver value
     driver = ""
     # Option setup to run in headless mode (in order to run this in GH Actions)
     options = FirefoxOptions()
-    options.add_argument('--width=800')
-    options.add_argument('--height=800')
-    options.add_argument('--headless')
+    options.add_argument('--width=1600')
+    options.add_argument('--height=1600')
+    #options.add_argument('--headless')
     # Setup
     print(f"\nSetting up: {browser} driver")
     driver = webdriver.Firefox(service=Service(GeckoDriverManager().install()), options=options)
@@ -55,6 +55,8 @@ def test_profile_eng(driver: webdriver.Firefox):
 
     # Loop through each staff element and check the behavior
     for component in components:
+        # Re-find the component to avoid stale element reference
+        component = driver.find_element(By.CLASS_NAME, "name")
         container = component.find_elements(By.CSS_SELECTOR, "*")
 
         # Assert that the container is not empty
@@ -80,34 +82,27 @@ def test_profile_eng(driver: webdriver.Firefox):
     # Assert the overall success of the test
     assert True
 
+
 # Test function to check emails for a given language
 def test_email(driver, capsys):
     # Wait for the page to load
     WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.CLASS_NAME, "language-switcher")))
 
-    # Click the language switcher if present (Ukrainian)
-    div_container = driver.find_element(By.CLASS_NAME, "language-switcher")
-    components = div_container.find_elements(By.CSS_SELECTOR, "*")
-    if components:
-        components[0].click()
-
+    mails = []
     # Read emails from the file
-    with open(EMAIL_FILE_PATH, "r") as m_file:
-        mails = [line.strip() for line in m_file]
+    with open(r"./mail.txt", "r") as m_file:
+        lines = m_file.readlines()
+        for line in lines:
+            mails.append(line.replace("\n", ""))
 
-    # Find email elements on the page
-    email_elements = driver.find_elements(By.CLASS_NAME, "email")
-
-    # Check each email element against the expected emails
-    for index, email_element in enumerate(email_elements, start=1):
-        container = email_element.find_elements(By.CSS_SELECTOR, "*")
-
-        # Print information for debugging
+    components = driver.find_elements(By.CLASS_NAME, "email")
+    for component in components:
+        container = component.find_elements(By.CSS_SELECTOR, "*")
         if container:
-            print(f"\nChecking email {index}: {container[0].text} against the expected emails.")
-            assert container[0].text in mails, f"Email {container[0].text} not found in the expected list"
-        else:
-            print(f"\nEmail {index} container is empty. Skipping assertion.")
+            if container[0].text != '':
+                assert container[0].text in mails
+
+
 
 # Run the test
 

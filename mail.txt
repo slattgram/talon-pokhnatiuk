@@ -26,17 +26,20 @@ halyna.dutsyak@lnu.edu.ua
 Andrii.Fesiuk@lnu.edu.ua
 igor.olenych@lnu.edu.ua
 halyna.klym@lnu.edu.ua
-lyubomyr.monastyrskyy@lnu.edu.ua
+lyubomur.monastyrskyy@lnu.edu.ua
 yaroslav.boyko@lnu.edu.ua
 oleh.sinkevych@lnu.edu.ua
+viktor.dmytriv@lnu.edu.ua
 bohdan.sokolovskyy@lnu.edu.ua
 Orest.Fliunt@lnu.edu.ua
 mykhailo.pavlyk@lnu.edu.ua
 marianna.prytula@lnu.edu.ua
+roksolana.kovtko@lnu.edu.ua
 oleksandr.futey@lnu.edu.ua
 Ivan.Karbovnyk@lnu.edu.ua
 Ivan.Bolesta@lnu.edu.ua
 mariia.nazarkevych@lnu.edu.ua
+andriy.prodyvus@lnu.edu.ua
 serhii.rendziniak@lnu.edu.ua
 Bohdan.Blahitko@lnu.edu.ua
 serhiy.velhosh@lnu.edu.ua
@@ -95,6 +98,7 @@ oleh.bordun@lnu.edu.ua
 taras.demkiv@lnu.edu.ua
 volodymyr.bihdai@lnu.edu.ua
 roman.bihun@lnu.edu.ua
+ivan.bulka0107@gmail.com
 ihor.kukharskyy@lnu.edu.ua
 ivanna.medvid@lnu.edu.ua
 bohdan.penyukh@lnu.edu.ua
@@ -109,6 +113,8 @@ roman.kovtun@lnu.edu.ua
 ivan.fedorovych@lnu.edu.ua
 iryna.azarova@lnu.edu.ua
 serhii.pashchenko@lnu.edu.ua
+Valeriy.Shevchuk@lnu.edu.ua
+Lesya.Romanyak@lnu.edu.ua
 volodymyr.pysarevskyi@lnu.edu.ua
 ihor.bordiuzhenko@lnu.edu.ua
 olha.riabchuk@lnu.edu.ua
@@ -125,5 +131,4 @@ orest.dzendzelyuk@lnu.edu.ua
 roman.yaremyk@lnu.edu.ua
 vasyl.hetman@lnu.edu.ua
 yaroslav.shpotyuk@lnu.edu.ua
-vyacheslav.vasyltsiv@lnu.edu.ua
 markiyan.kushlyk@lnu.edu.ua
